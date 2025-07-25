@@ -6,6 +6,7 @@ import Features from "./sections/Features";
 import Button from "./ui/Button";
 import Engagement from "./sections/Engagement";
 import Pointers from "./sections/Pointers";
+import FeatureExplanations from "./sections/FeatureExplanations";
 
 interface Section {
   type: string;
@@ -83,6 +84,9 @@ const SectionSlider = ({ sections }: SectionSliderProps) => {
               <Engagement section={section} />
             )}
             {section.type == "pointers" && <Pointers section={section} />}
+            {section.type == "feature_explanations" && (
+              <FeatureExplanations section={section} />
+            )}
           </div>
         ))}
       </div>
