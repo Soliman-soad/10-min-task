@@ -1,10 +1,11 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import Instructor from "./sections/Instructor";
 import Features from "./sections/Features";
 import Button from "./ui/Button";
 import Engagement from "./sections/Engagement";
+import Pointers from "./sections/Pointers";
 
 interface Section {
   type: string;
@@ -81,6 +82,7 @@ const SectionSlider = ({ sections }: SectionSliderProps) => {
             {section.type == "group_join_engagement" && (
               <Engagement section={section} />
             )}
+            {section.type == "pointers" && <Pointers section={section} />}
           </div>
         ))}
       </div>
