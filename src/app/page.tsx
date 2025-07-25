@@ -1,17 +1,21 @@
 "use client";
 import Navbar from "@/components/Navbar";
 import { useGetIeltsCourseQuery } from "./ieltsApi";
+import Hero from "@/components/Hero";
+import { useState } from "react";
 
 export default function Home() {
-  const { data, error, isLoading } = useGetIeltsCourseQuery({ lang: "en" });
+  const [lang, setLang] = useState("en");
+  const { data, error, isLoading } = useGetIeltsCourseQuery({ lang });
   console.log(data)
 
   return (
     <div>
-      <Navbar />
-      <div className="p-4">
-        <h1 className="text-2xl font-bold mb-2">IELTS Course Data</h1>        
-      </div>
+      <Navbar 
+      lang={lang}
+      setLang={setLang}
+      />
+      <Hero/>
     </div>
   );
 }

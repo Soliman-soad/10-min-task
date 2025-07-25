@@ -11,7 +11,7 @@ const SearchBar = ({
   value?: string;
 }) => {
   return (
-    <div className="w-[350px] p-2 border border-gray-300 rounded-4xl flex items-center gap-2">
+    <div className="flex items-center gap-2 border border-gray-300 rounded-4xl p-2 w-full md:w-[260px] lg:w-[420px] md:max-w-[420px]">
       <Search />
       <input
         type="text"

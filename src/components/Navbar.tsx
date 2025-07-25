@@ -4,7 +4,13 @@ import SearchBar from "./ui/SearchBar";
 import Button from "./ui/Button";
 import { Languages, Phone, Search } from "lucide-react";
 
-const Navbar = () => {
+const Navbar = ({
+  lang,
+  setLang,
+}: {
+  lang: string;
+  setLang: (lang: string) => void;
+}) => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav className="bg-white border-b border-gray-300">
@@ -18,31 +24,40 @@ const Navbar = () => {
             width={100}
             height={100}
           />
-          <div className="hidden sm:block w-full max-w-xs md:max-w-none">
+          <div className="hidden md:block w-full max-w-xs md:max-w-none">
             <SearchBar />
           </div>
         </div>
-        {/* Hamburger for mobile */}
         <button
           className="md:hidden p-2 rounded-md "
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <Search size={24} color="green" />
         </button>
+        {menuOpen && (
+          <div className="absolute top-16 left-0 right-0 bg-white border-b border-gray-200 p-4 md:hidden h-[90vh] overflow-y-auto">
+            <SearchBar />
+          </div>
+        )}
         {/* Right: Buttons */}
         <div className="flex items-center gap-2">
-          <Button
-            className="hidden md:inline-flex"
-            label="বাংলা"
-            icon={<Languages />}
-            variant="outline"
-          />
-          <Button
-            className="hidden md:inline-flex"
-            label="English"
-            icon={<Languages />}
-            variant="outline"
-          />
+          {lang === "en" ? (
+            <Button
+              className="hidden md:inline-flex"
+              label="বাংলা"
+              icon={<Languages />}
+              variant="outline"
+              onClick={() => setLang("bn")}
+            />
+          ) : (
+            <Button
+              className="hidden md:inline-flex"
+              label="English"
+              icon={<Languages />}
+              variant="outline"
+              onClick={() => setLang("en")}
+            />
+          )}
           <Button
             label="16910"
             className="!text-green-600 border-0 "
