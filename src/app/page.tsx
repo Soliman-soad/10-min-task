@@ -26,7 +26,7 @@ export default function Home() {
         }
       />
       <SectionSlider
-        sections={course?.sections?.filter((e: any) => e.name) || []}
+        sections={course?.sections?.filter((e: any) => e.order_idx!==1 && e.order_idx!==2) || []}
       />
     </div>
   );

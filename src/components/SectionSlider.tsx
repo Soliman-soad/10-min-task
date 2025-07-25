@@ -2,6 +2,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import Instructor from "./sections/Instructor";
+import Features from "./sections/Features";
+import Button from "./ui/Button";
+import Engagement from "./sections/Engagement";
 
 interface Section {
   type: string;
@@ -71,9 +74,13 @@ const SectionSlider = ({ sections }: SectionSliderProps) => {
       </div>
 
       <div>
-        {sections.map((section, idx) => (
+        {sections.map((section) => (
           <div key={section.type}>
             {section.type == "instructors" && <Instructor section={section} />}
+            {section.type == "features" && <Features section={section} />}
+            {section.type == "group_join_engagement" && (
+              <Engagement section={section} />
+            )}
           </div>
         ))}
       </div>

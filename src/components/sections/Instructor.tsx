@@ -23,7 +23,7 @@ const Instructor = ({
     <>
       {section.values.map((value) => (
         <div key={value.slug}>
-          <h3 className="text-xl font-semibold">{section.name}</h3>
+          <h3 className="text-2xl font-semibold">{section.name}</h3>
           <div className="flex items-center gap-4 mt-2 border border-gray-300 p-6 rounded-lg">
             <div>
               <Image
