@@ -38,7 +38,7 @@ const SectionSlider = ({ sections }: SectionSliderProps) => {
 
   return (
     <>
-      <div className="flex flex-col items-center gap-6 w-full max-w-xl mx-auto">
+      <div className="flex flex-col items-center gap-6 w-full max-w-xl mx-auto mb-10 mt-5">
         <div className="flex items-center w-full">
           <button
             onClick={() => scrollRow("left")}
@@ -76,7 +76,7 @@ const SectionSlider = ({ sections }: SectionSliderProps) => {
         </div>
       </div>
 
-      <div>
+      <div className="space-y-16">
         {sections.map((section) => (
           <div key={section.type}>
             {section.type === "instructors" && <Instructor section={section} />}

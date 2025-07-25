@@ -30,7 +30,7 @@ export default function CustomCarousel({ media }: { media: any }) {
   const currentSlide = media[currentIndex];
 
   return (
-    <div className="w-full max-w-[320px] mx-auto">
+    <div className="w-full max-w-[350px] mx-auto">
       {/* Main Display */}
       <div className="relative aspect-video overflow-hidden mb-4 bg-black">
         {currentSlide.resource_type === "video" ? (
@@ -62,13 +62,13 @@ export default function CustomCarousel({ media }: { media: any }) {
           onClick={goPrev}
           className="absolute left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-50 p-1 rounded-full hover:bg-opacity-80"
         >
-          <ChevronLeft />
+          <ChevronLeft color="black" />
         </button>
         <button
           onClick={goNext}
           className="absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-50 p-1 rounded-full hover:bg-opacity-80"
         >
-          <ChevronRight />
+          <ChevronRight color="black" />
         </button>
       </div>
 
