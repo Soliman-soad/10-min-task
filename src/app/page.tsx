@@ -6,8 +6,8 @@ import { useState } from "react";
 
 export default function Home() {
   const [lang, setLang] = useState("en");
-  const { data, error, isLoading } = useGetIeltsCourseQuery({ lang });
-  console.log(data)
+  const { data: apiResponse, error, isLoading } = useGetIeltsCourseQuery({ lang });
+  const course = (apiResponse as any)?.data;
 
   return (
     <div>
@@ -15,7 +15,10 @@ export default function Home() {
       lang={lang}
       setLang={setLang}
       />
-      <Hero/>
+      <Hero
+      title={course?.title || "IELTS Course"}
+      description={course?.description || "Learn IELTS with our comprehensive course."}
+      />
     </div>
   );
 }
