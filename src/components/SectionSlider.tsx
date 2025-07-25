@@ -1,10 +1,15 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import React, { useRef, useState } from "react";
+import Instructor from "./sections/Instructor";
 
 interface Section {
   type: string;
   name: string;
   description: string;
+  bg_color: string;
+  order_idx: number;
+  values: Array<any>;
 }
 
 interface SectionSliderProps {
@@ -26,43 +31,53 @@ const SectionSlider = ({ sections }: SectionSliderProps) => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-6 w-full max-w-xl mx-auto">
-      <div className="flex items-center w-full">
-        <button
-          onClick={() => scrollRow("left")}
-          className="p-1 text-white bg-neutral-500 rounded-full mr-1"
-          aria-label="Scroll left"
-        >
-          <ChevronLeft />
-        </button>
-        <div
-          ref={rowRef}
-          className="flex overflow-x-auto no-scrollbar gap-2 px-2 w-full  border-b border-gray-300"
-          style={{ scrollBehavior: "smooth" }}
-        >
-          {sections.map((section, idx) => (
-            <button
-              key={section.type}
-              onClick={() => setCurrentIndex(idx)}
-              className={`px-4 py-2 whitespace-nowrap transition font-medium ${
-                idx === currentIndex
-                  ? "border-b border-green-500 text-green-600"
-                  : ""
-              }`}
-            >
-              {section.name}
-            </button>
-          ))}
+    <>
+      <div className="flex flex-col items-center gap-6 w-full max-w-xl mx-auto">
+        <div className="flex items-center w-full">
+          <button
+            onClick={() => scrollRow("left")}
+            className="p-1 text-white bg-neutral-500 rounded-full mr-1"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft />
+          </button>
+          <div
+            ref={rowRef}
+            className="flex overflow-x-auto no-scrollbar gap-2 px-2 w-full  border-b border-gray-300"
+            style={{ scrollBehavior: "smooth" }}
+          >
+            {sections.map((section, idx) => (
+              <button
+                key={section.type}
+                onClick={() => setCurrentIndex(idx)}
+                className={`px-4 py-2 whitespace-nowrap transition font-medium ${
+                  idx === currentIndex
+                    ? "border-b border-green-500 text-green-600"
+                    : ""
+                }`}
+              >
+                {section.name}
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={() => scrollRow("right")}
+            className="p-1 text-white bg-neutral-500 rounded-full ml-1"
+            aria-label="Scroll right"
+          >
+            <ChevronRight />
+          </button>
         </div>
-        <button
-          onClick={() => scrollRow("right")}
-          className="p-1 text-white bg-neutral-500 rounded-full ml-1"
-          aria-label="Scroll right"
-        >
-          <ChevronRight />
-        </button>
       </div>
-    </div>
+
+      <div>
+        {sections.map((section, idx) => (
+          <div key={section.type}>
+            {section.type == "instructors" && <Instructor section={section} />}
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 

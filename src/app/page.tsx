@@ -14,7 +14,7 @@ export default function Home() {
   } = useGetIeltsCourseQuery({ lang });
   const course = (apiResponse as any)?.data;
 
-  console.log(course.sections);
+  console.log(course?.sections);
 
   return (
     <div>
