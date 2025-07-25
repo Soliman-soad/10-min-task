@@ -4,6 +4,7 @@ import { useGetIeltsCourseQuery } from "./ieltsApi";
 import Hero from "@/components/Hero";
 import { useState } from "react";
 import SectionSlider from "@/components/SectionSlider";
+import CustomCarousel from "@/components/CustomCarousel";
 
 export default function Home() {
   const [lang, setLang] = useState("en");
@@ -14,7 +15,7 @@ export default function Home() {
   } = useGetIeltsCourseQuery({ lang });
   const course = (apiResponse as any)?.data;
 
-  console.log(course?.sections);
+  console.log(course);
 
   return (
     <div>
@@ -26,8 +27,13 @@ export default function Home() {
         }
       />
       <SectionSlider
-        sections={course?.sections?.filter((e: any) => e.order_idx!==1 && e.order_idx!==2) || []}
+        sections={
+          course?.sections?.filter(
+            (e: any) => e.order_idx !== 1 && e.order_idx !== 2
+          ) || []
+        }
       />
+      {course?.media && <CustomCarousel media={course?.media || []} />}
     </div>
   );
 }
