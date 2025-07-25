@@ -34,3 +34,18 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
 }
+
+/* Custom bullet for injected HTML lists */
+.custom-bullet-list li {
+  position: relative;
+  padding-left: 1.5em;
+  list-style: none;
+}
+.custom-bullet-list li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  color: #000000;
+  font-size: 1.2em;
+  line-height: 1;
+}

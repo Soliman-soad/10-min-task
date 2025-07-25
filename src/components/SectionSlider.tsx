@@ -7,6 +7,7 @@ import Button from "./ui/Button";
 import Engagement from "./sections/Engagement";
 import Pointers from "./sections/Pointers";
 import FeatureExplanations from "./sections/FeatureExplanations";
+import CourseDetails from "./sections/CourseDetails";
 
 interface Section {
   type: string;
@@ -78,15 +79,16 @@ const SectionSlider = ({ sections }: SectionSliderProps) => {
       <div>
         {sections.map((section) => (
           <div key={section.type}>
-            {section.type == "instructors" && <Instructor section={section} />}
-            {section.type == "features" && <Features section={section} />}
-            {section.type == "group_join_engagement" && (
+            {section.type === "instructors" && <Instructor section={section} />}
+            {section.type === "features" && <Features section={section} />}
+            {section.type === "group_join_engagement" && (
               <Engagement section={section} />
             )}
-            {section.type == "pointers" && <Pointers section={section} />}
-            {section.type == "feature_explanations" && (
+            {section.type === "pointers" && <Pointers section={section} />}
+            {section.type === "feature_explanations" && (
               <FeatureExplanations section={section} />
             )}
+            {section.type === "about" && <CourseDetails section={section} />}
           </div>
         ))}
       </div>
