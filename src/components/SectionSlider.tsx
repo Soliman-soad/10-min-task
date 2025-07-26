@@ -76,7 +76,7 @@ const SectionSlider = ({ sections }: SectionSliderProps) => {
         </div>
       </div>
 
-      <div className="space-y-16">
+      <div className="space-y-10 xl:space-y-16">
         {sections.map((section) => (
           <div key={section.type}>
             {section.type === "instructors" && <Instructor section={section} />}

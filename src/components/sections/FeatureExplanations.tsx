@@ -26,7 +26,7 @@ const FeatureExplanations = ({
         {section.values.map((value: any) => (
           <div
             key={value.id}
-            className="flex items-start gap-4 mt-2 p-4 mb-4"
+            className="flex flex-col md:flex-row items-start gap-4 mt-2 p-4 mb-4"
           >
             <div className="w-full">
               <h1 className="mb-3 text-black">{value.title}</h1>

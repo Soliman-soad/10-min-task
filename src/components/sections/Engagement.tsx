@@ -46,7 +46,7 @@ const Engagement = ({
           className="border-b-4 border-green-700"
         />
       </div>
-      <div className="w-3/4">
+      <div className="w-3/4 hidden md:block">
         <Image
           src={section.values[0].thumbnail}
           width={320}
