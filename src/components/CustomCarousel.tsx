@@ -30,8 +30,7 @@ export default function CustomCarousel({ media }: { media: any }) {
   const currentSlide = media[currentIndex];
 
   return (
-    <div className="w-full max-w-[350px] mx-auto">
-      {/* Main Display */}
+    <div className="w-full mx-auto">
       <div className="relative aspect-video overflow-hidden mb-4 bg-black">
         {currentSlide.resource_type === "video" ? (
           <ReactPlayer
@@ -72,7 +71,6 @@ export default function CustomCarousel({ media }: { media: any }) {
         </button>
       </div>
 
-      {/* Thumbnails */}
       <div className="flex gap-3 overflow-x-auto no-scrollbar">
         {media.map((slide: any, index: number) => (
           <div

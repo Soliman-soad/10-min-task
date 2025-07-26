@@ -38,7 +38,7 @@ const SectionSlider = ({ sections }: SectionSliderProps) => {
 
   return (
     <>
-      <div className="flex flex-col items-center gap-6 w-full max-w-xl mx-auto mb-10 mt-5">
+      <div className="flex flex-col items-center gap-6 w-full mx-auto mb-10 mt-5">
         <div className="flex items-center w-full">
           <button
             onClick={() => scrollRow("left")}
@@ -56,7 +56,7 @@ const SectionSlider = ({ sections }: SectionSliderProps) => {
               <button
                 key={section.type}
                 onClick={() => setCurrentIndex(idx)}
-                className={`px-4 py-2 whitespace-nowrap transition font-medium ${
+                className={`px-3 py-2 whitespace-nowrap transition font-medium ${
                   idx === currentIndex
                     ? "border-b border-green-500 text-green-600"
                     : ""

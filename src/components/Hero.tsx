@@ -26,26 +26,28 @@ const Hero = ({
       />
 
       <div className="flex">
-        <div className="relative z-20 space-y-1 p-4 w-full">
-          <h1 className="text-3xl font-semibold">{title}</h1>
-          <h3 className="flex items-center gap-2 text-lg font-medium text-gray-300">
-            <div className="inline-flex items-center gap-1">
-              <Star fill="#ffa600" strokeWidth={0} />
-              <Star fill="#ffa600" strokeWidth={0} />
-              <Star fill="#ffa600" strokeWidth={0} />
-              <Star fill="#ffa600" strokeWidth={0} />
-              <Star fill="#ffa600" strokeWidth={0} />
-            </div>
-            <span>(82.6% শিক্ষার্থী কোর্স শেষে ৫ রেটিং দিয়েছেন)</span>
-          </h3>
-          <p
-            className="text-lg text-white"
-            dangerouslySetInnerHTML={{ __html: description }}
-          />
+        <div className="relative z-20 p-4 w-full flex justify-end mt-10">
+          <div className="w-[85%] space-y-2 ">
+            <h1 className="text-4xl font-semibold">{title}</h1>
+            <h3 className="flex items-center gap-2 font-medium text-gray-300">
+              <div className="inline-flex items-center gap-1">
+                <Star fill="#ffa600" strokeWidth={0} />
+                <Star fill="#ffa600" strokeWidth={0} />
+                <Star fill="#ffa600" strokeWidth={0} />
+                <Star fill="#ffa600" strokeWidth={0} />
+                <Star fill="#ffa600" strokeWidth={0} />
+              </div>
+              <span>(82.6% শিক্ষার্থী কোর্স শেষে ৫ রেটিং দিয়েছেন)</span>
+            </h3>
+            <p
+              className="text-neutral-400"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+          </div>
         </div>
 
-        <div className="w-full">
-          <div className="max-w-[350px] relative mx-auto bg-white p-2 overflow-visible z-50 space-y-5 border border-gray-300">
+        <div className="w-[70%]">
+          <div className="max-w-[400px] relative mx-auto bg-white p-2 overflow-visible z-50 space-y-5 border border-gray-300">
             <CustomCarousel media={media || []} />
             <h2 className="text-black text-3xl">৳1000</h2>
             <Button

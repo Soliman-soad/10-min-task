@@ -17,7 +17,7 @@ export default function Home() {
   console.log(course);
 
   return (
-    <div>
+    <div className="relative">
       <Navbar lang={lang} setLang={setLang} />
 
       {course?.media && (
@@ -30,15 +30,11 @@ export default function Home() {
           checklist={course?.checklist}
         />
       )}
-      <div className="grid grid-cols-2">
-        <div className="mx-auto w-[95%]">
-          <SectionSlider
-            sections={
-              course?.sections?.filter(
-                (e: any) => e.order_idx !== 1 && e.order_idx !== 2
-              ) || []
-            }
-          />
+      <div className="grid grid-cols-8 justify-end relative z-40">
+        <div className="flex items-end flex-col  col-span-5">
+          <div className="w-[85%]">
+            <SectionSlider sections={course?.sections?.slice(2) || []} />
+          </div>
         </div>
       </div>
     </div>
