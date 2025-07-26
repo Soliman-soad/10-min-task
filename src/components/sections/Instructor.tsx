@@ -28,7 +28,7 @@ const Instructor = ({
             <div>
               <Image
                 src={value.image}
-                alt={value.short_description}
+                alt={value.short_description || "Instructor Image"}
                 width={80}
                 height={80}
                 className="rounded-full"

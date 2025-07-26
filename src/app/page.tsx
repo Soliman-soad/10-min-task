@@ -1,9 +1,14 @@
 "use client";
 import Navbar from "@/components/Navbar";
 import { useGetIeltsCourseQuery } from "./ieltsApi";
-import Hero from "@/components/Hero";
 import { useState } from "react";
-import SectionSlider from "@/components/SectionSlider";
+import dynamic from "next/dynamic";
+const Hero = dynamic(() => import("@/components/Hero"), {
+  ssr: true,
+});
+const SectionSlider = dynamic(() => import("@/components/SectionSlider"), {
+  ssr: true,
+});
 
 export default function Home() {
   const [lang, setLang] = useState("en");
@@ -14,7 +19,21 @@ export default function Home() {
   } = useGetIeltsCourseQuery({ lang });
   const course = (apiResponse as any)?.data;
 
-  console.log(course);
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-green-600"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-red-500">Error loading course data.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="relative">

@@ -41,7 +41,7 @@ const FeatureExplanations = ({
             <div className="w-full">
               <Image
                 src={value.file_url}
-                alt={value.title}
+                alt={value.title|| "Feature Image"}
                 width={230}
                 height={230}
                 className="mx-auto"

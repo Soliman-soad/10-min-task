@@ -31,7 +31,7 @@ const Features = ({
             <div className="flex-shrink-0">
               <Image
                 src={value.icon}
-                alt={value.short_description}
+                alt={value.short_description|| "Feature Icon"}
                 width={35}
                 height={35}
                 className="rounded-full"

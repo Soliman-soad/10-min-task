@@ -49,7 +49,7 @@ export default function CustomCarousel({ media }: { media: any }) {
           <div className="w-full h-full relative">
             <Image
               src={currentSlide.thumbnail_url || currentSlide.resource_value}
-              alt={currentSlide.name}
+              alt={currentSlide.name|| "Slide Image"}
               fill
               className="object-cover"
             />

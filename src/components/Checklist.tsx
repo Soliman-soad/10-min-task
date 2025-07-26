@@ -20,7 +20,7 @@ const Checklist = ({
         <div key={value.id} className="flex items-center gap-2 my-2 text-black">
           <Image
             src={value.icon}
-            alt={value.name}
+            alt={value.name|| "Checklist Icon"}
             width={20}
             height={20}
             className="w-6 h-6"
